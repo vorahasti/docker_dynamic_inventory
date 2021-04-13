@@ -1,0 +1,12 @@
+- hosts: docker
+  tasks:
+  - name: "Installing httpd"
+    package:
+       name: "httpd"
+  - name: "Deploying WebPages"
+    copy:
+      src: "/root/dynamic/index.html" 
+      dest: "/var/www/html/index.html"
+
+  - name: "Starting Service"
+    command: /usr/sbin/httpd
